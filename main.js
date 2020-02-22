@@ -37,10 +37,27 @@ printDinos(dinos);
 
 };
 
+
 const viewSingleDino = (e) => {
-    console.log(e.target.closest('.card'));
+    const dinoId = e.target.closest('.card').id;
+    const selectedDino = dinos.find((currentDino) => dinoId === currentDino.id);
+    console.log('selectedDino',selectedDino);
     let domString = "";
     domString += '<button id="close-single-view" class="btn btn-outline-dark"><i class="fas fa-window-close"></i></button>';
+    domString += '<div class = "container">';
+    domString += '<div class = "row">';
+    domString += '<div class = "col-6">';
+    domString += `<img class = "img-fluid" src = "${selectedDino.imageUrl}"alt = ""/>`;
+    domString += '</div>';
+    domString +=  '<div class = "col-6">';
+    domString +=  `<h2>${selectedDino.name}</h2>`;
+    domString += `<p> Type: ${selectedDino.type}</p>`;
+    domString += `<p> Age: ${selectedDino.age}</p>`
+    domString +=`<p> Owner: ${selectedDino.owner}</p>`
+    domString += `<p> Health: ${selectedDino.health}</p>`
+    domString += '</div>';
+    domString += '</div>';
+    
     printToDom('kennel','');
     printToDom('single-view',domString);
     document.getElementById('close-single-view').addEventListener('click',closeSingleViewEvent);
