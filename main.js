@@ -74,8 +74,10 @@ const singleDinoAddEvents=()=>{
 const dinoHealth = (e) => {
     const dinoId = e.target.closest('.card').id;
     const dinoPosition = dinos.findIndex((p) => p.id === dinoId);
+    if(dinos[dinoPosition].health  < 100){
  dinos[dinoPosition].health += 1;
  printDinos(dinos);
+}
      };
 
      
