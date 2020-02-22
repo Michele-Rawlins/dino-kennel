@@ -5,7 +5,7 @@ e.preventDefault();
 
 const brandNewDino = {
 
-id: 'dino1',
+id: `dino${dinos.length + 1}`,
 name: document.getElementById('dino-name').value,
 type: document.getElementById('dino-type').value,
 age: document.getElementById('dino-age').value,
